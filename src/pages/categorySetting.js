@@ -5,13 +5,15 @@ import {
   Create,
   Datagrid,
   TextField,
-  EditButton,
   DisabledInput,
   LongTextInput,
   SimpleForm,
   TextInput,
   translate,
-  required } from 'admin-on-rest';
+  required,
+  Show,
+  SimpleShowLayout,
+  ShowButton } from 'admin-on-rest';
 
 
 const CategorySettingPagination = () => {
@@ -26,9 +28,22 @@ export const CategorySettingList = (props) => (
       <TextField source="name" sortable={false} />
       <TextField source="title" sortable={false}/>
       <TextField source="description" sortable={false} />
-      <EditButton />
+      <ShowButton />
     </Datagrid>
   </List>
+);
+
+
+export const CategorySettingShow = (props) => (
+  <Show title={<CategorySettingTitle />} {...props}>
+      <SimpleShowLayout>
+        <TextField source="id" />
+        <TextField source="code" />
+        <TextField source="name" />
+        <TextField source="title" />
+        <TextField source="description" />
+      </SimpleShowLayout>
+  </Show>
 );
 
 

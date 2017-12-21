@@ -7,6 +7,18 @@ query reviewSettingById($id: ID!) {
     detailed
     businessUnitId
     ratingSettingId
+    ratingSetting {
+      id
+      code
+      name
+      description
+    }
+    businessUnit {
+      id
+      code
+      name
+      countryId
+    }
   }
 }`;
 
@@ -17,16 +29,39 @@ query reviewSettings {
     detailed
     businessUnitId
     ratingSettingId
+    ratingSetting {
+      id
+      code
+      name
+      description
+    }
+    businessUnit {
+      id
+      code
+      name
+      countryId
+    }
   }
 }`;
 
-
 export const createReviewSettingQuery = gql`
-mutation createReviewSetting(detailed: Boolean!, $businessUnitId: Id!, $ratingSettingId: Id!){
-  createReviewSetting(detailed: $detailed, businessUnitId: $businessUnitId, ratingSettingId: $ratingSettingId){
+mutation createReviewSetting ($id: ID,  $businessUnitId: ID!, $ratingSettingId: ID!) {
+  createReviewSetting (id: $id, businessUnitId: $businessUnitId, ratingSettingId: $ratingSettingId) {
     id
     detailed
     businessUnitId
     ratingSettingId
+    ratingSetting {
+      id
+      code
+      name
+      description
+    }
+    businessUnit {
+      id
+      code
+      name
+      countryId
+    }
   }
 }`;

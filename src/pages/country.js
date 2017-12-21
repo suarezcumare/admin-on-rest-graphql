@@ -5,12 +5,14 @@ import {
   Create,
   Datagrid,
   TextField,
-  EditButton,
   DisabledInput,
   SimpleForm,
   TextInput,
   translate,
-  required } from 'admin-on-rest';
+  required,
+  Show,
+  SimpleShowLayout,
+  ShowButton } from 'admin-on-rest';
 
 
 const CountryPagination = () => {
@@ -23,9 +25,19 @@ export const CountryList = (props) => (
       <TextField source="id" sortable={false} />
       <TextField source="code" sortable={false} />
       <TextField source="name" sortable={false} />
-      <EditButton />
+      <ShowButton />
     </Datagrid>
   </List>
+);
+
+export const CountryShow = (props) => (
+  <Show title={<CountryTitle />} {...props}>
+      <SimpleShowLayout>
+        <TextField source="id" />
+        <TextField source="code" />
+        <TextField source="name" />
+      </SimpleShowLayout>
+  </Show>
 );
 
 

@@ -5,12 +5,17 @@ import {
   Create,
   Datagrid,
   TextField,
-  EditButton,
   DisabledInput,
   SimpleForm,
   TextInput,
   translate,
-  required } from 'admin-on-rest';
+  required,
+  Show,
+  SimpleShowLayout,
+  ShowButton,
+  ReferenceField,
+  ReferenceInput,
+  SelectInput } from 'admin-on-rest';
 
 
 const BusinessUnitPagination = () => {
@@ -23,9 +28,26 @@ export const BusinessUnitList = (props) => (
       <TextField source="id" sortable={false} />
       <TextField source="code" sortable={false} />
       <TextField source="name" sortable={false} />
-      <EditButton />
+      <ReferenceField source="country.id" reference="Country" linkType="show" sortable={false}>
+          <TextField source="name" />
+      </ReferenceField>
+      <ShowButton />
     </Datagrid>
   </List>
+);
+
+
+export const BusinessUnitShow = (props) => (
+  <Show title={<BusinessUnitTitle />} {...props}>
+      <SimpleShowLayout>
+        <TextField source="id" />
+        <TextField source="code" />
+        <TextField source="name" />
+        <ReferenceField source="country.id" reference="Country" linkType="show">
+          <TextField source="name" />
+        </ReferenceField>
+      </SimpleShowLayout>
+  </Show>
 );
 
 
@@ -39,6 +61,9 @@ export const BusinessUnitEdit = (props) => (
       <DisabledInput source="id"  />
       <TextInput source="code" validate={required} />
       <TextInput source="name" validate={required}  />
+      <ReferenceInput source="country.id" reference="Country" allowEmpty validate={required}>
+        <SelectInput optionText="name" />
+      </ReferenceInput>
     </SimpleForm>
   </Edit>
 );
@@ -48,6 +73,9 @@ export const BusinessUnitCreate = (props) => (
     <SimpleForm>
       <TextInput source="code" validate={required} />
       <TextInput source="name" validate={required} />
+      <ReferenceInput source="country.id" reference="Country" allowEmpty validate={required}>
+        <SelectInput optionText="name" />
+      </ReferenceInput>
     </SimpleForm>
   </Create>
 );

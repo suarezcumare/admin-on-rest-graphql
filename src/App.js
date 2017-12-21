@@ -16,28 +16,40 @@ import myQueries from './queries/index';
 import {
   CountryList,
   CountryEdit,
-  CountryCreate
+  CountryCreate,
+  CountryShow
 } from './pages/country';
 import {
   BusinessUnitList,
   BusinessUnitEdit,
-  BusinessUnitCreate
+  BusinessUnitCreate,
+  BusinessUnitShow
 } from './pages/businessUnit';
 import {
   CategorySettingList,
   CategorySettingEdit,
-  CategorySettingCreate
+  CategorySettingCreate,
+  CategorySettingShow
 } from './pages/categorySetting';
 import {
   RatingSettingList,
   RatingSettingEdit,
-  RatingSettingCreate
+  RatingSettingCreate,
+  RatingSettingShow
 } from './pages/ratingSetting';
+import {
+  ReviewSettingList,
+  ReviewSettingEdit,
+  ReviewSettingCreate,
+  ReviewSettingShow
+} from './pages/reviewSetting';
 import { 
   ReviewCategorySettingList,
   ReviewCategorySettingEdit,
-  ReviewCategorySettingCreate
+  ReviewCategorySettingCreate,
+  ReviewCategorySettingShow
 } from './pages/reviewCategorySetting';
+
 import myGraphCoolFlavor from './flavors/default'
 
 class App extends Component {
@@ -74,34 +86,43 @@ class App extends Component {
           name="Country"
           list={CountryList}
           edit={CountryEdit}
-          create={CountryCreate} />
+          create={CountryCreate} 
+          show={CountryShow} />
         
         <Resource 
           name="BusinessUnit"
           list={BusinessUnitList}
           edit={BusinessUnitEdit}
-          create={BusinessUnitCreate} />
+          create={BusinessUnitCreate}
+          show={BusinessUnitShow} />
         
         <Resource
-        name="CategorySetting" list={CategorySettingList} edit={CategorySettingEdit} create={CategorySettingCreate} />
+          name="CategorySetting"
+          list={CategorySettingList}
+          edit={CategorySettingEdit}
+          create={CategorySettingCreate}
+          show={CategorySettingShow} />
         
         <Resource
           name="RatingSetting"
           list={RatingSettingList}
           edit={RatingSettingEdit}
-          create={RatingSettingCreate} />
+          create={RatingSettingCreate}
+          show={RatingSettingShow} />
         
-        <Resource 
-          name="RatingSetting"
-          list={ReviewCategorySettingList}
-          edit={ReviewCategorySettingEdit}
-          create={RatingSettingCreate} />
+        <Resource
+          name="ReviewSetting"
+          list={ReviewSettingList}
+          edit={ReviewSettingEdit}
+          create={ReviewSettingCreate}
+          show={ReviewSettingShow} />
 
         <Resource 
           name="ReviewCategorySetting"
           list={ReviewCategorySettingList}
           edit={ReviewCategorySettingEdit}
-          create={ReviewCategorySettingCreate} />
+          create={ReviewCategorySettingCreate}
+          show={ReviewCategorySettingShow} />
     </Admin>
     );
   }

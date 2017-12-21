@@ -7,6 +7,11 @@ query businessUnitById($id: ID!) {
     code
     name
     countryId
+    country {
+      id
+      code
+      name
+    }
   }
 }`;
 
@@ -17,6 +22,11 @@ query businessUnits {
     code
     name
     countryId
+    country {
+      id
+      code
+      name
+    }
   }
 }`;
 
@@ -28,5 +38,10 @@ mutation createBusinessUnit($code: String!, $name: String!){
     code
     name
     countryId
+    country {
+      id
+      code
+      name
+    }
   }
 }`;

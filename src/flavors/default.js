@@ -1,4 +1,3 @@
-import gql from 'graphql-tag';
 import pluralize from 'pluralize';
 
 import { CREATE, DELETE, GET_LIST, GET_MANY, GET_MANY_REFERENCE, GET_ONE, UPDATE, QUERY_TYPES } from '../constants';
@@ -25,7 +24,6 @@ export default {
       const { data } = response;
       const dataKey = getApolloResultKey(GET_LIST, apolloParams);
       const dataForType = data[dataKey];
-      console.log(dataForType)
       // if (typeof dataForType.totalCount !== 'number') {
       //     throw new Error(buildGetListErrorMessage(resource));
       // }
@@ -36,50 +34,29 @@ export default {
     },
   },
   [GET_MANY]: {
-    operationName: resourceType => `getPageOf${pluralize(resourceType.name)}`,
-    getParameters: params => ({
-      filter: JSON.stringify({ ids: params.ids }),
-      perPage: 1000,
-    }),
-    query: (operationName, fields) => gql`
-      query ${operationName}($page: Int, $perPage: Int, $sortField: String, $sortOrder: String, $filter: String) {
-          ${operationName}(page: $page, perPage: $perPage, sortField: $sortField, sortOrder: $sortOrder, filter: $filter) {
-            items { ${fields} }
-            totalCount
-          }
-      }
-    `,
     parseResponse: (response, resource, apolloParams) => {
       const { data } = response;
       const dataKey = getApolloResultKey(GET_MANY, apolloParams);
       const dataForType = data[dataKey];
-
-      if (dataForType.totalCount) {
-        return { data: dataForType.items.map(x => x) };
-      }
+      // if (dataForType.totalCount) {
+      //   return { data: dataForType.map(x => x) };
+      // }
 
       return { data: dataForType };
     },
   },
   [GET_MANY_REFERENCE]: {
-    operationName: resourceType => `getPageOf${pluralize(resourceType.name)}`,
+    operationName: resourceType => `${pluralize(resourceType.name)}`,
     getParameters: params => ({
       filter: JSON.stringify({ [params.target]: params.id }),
       perPage: 1000,
     }),
-    query: (operationName, fields) => gql`
-      query ${operationName}($page: Int, $perPage: Int, $sortField: String, $sortOrder: String, $filter: String) {
-          ${operationName}(page: $page, perPage: $perPage, sortField: $sortField, sortOrder: $sortOrder, filter: $filter) {
-            items { ${fields} }
-            totalCount
-          }
-      }
-    `,
+
     parseResponse: (response, resource, apolloParams) => {
       const { data } = response;
       const dataKey = getApolloResultKey(GET_MANY_REFERENCE, apolloParams);
       const dataForType = data[dataKey];
-
+      
       if (dataForType.totalCount) {
         return { data: dataForType.items.map(x => x) };
       }
@@ -88,7 +65,7 @@ export default {
     },
   },
   [GET_ONE]: {
-    operationName: resourceType => `get${resourceType.name}`,
+    operationName: resourceType => `${resourceType.name}`,
     getParameters: params => ({ id: params.id }),
     parseResponse: (response, resource, apolloParams) => {
       const { data } = response;

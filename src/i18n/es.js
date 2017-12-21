@@ -15,9 +15,11 @@ export default {
     BusinessUnit: {
       name: 'Unida de Negocio |||| Unidades de Negocios',
       fields: {
+        country: { id: 'Pais', name: 'Pais' },
+        reviewSettings: {id: 'Configuración de revisión'},
         name: 'Nombre',
         id: 'Id',
-        code: 'Codigo'
+        code: 'Codigo',
       }
     },
     CategorySetting: {
@@ -50,6 +52,8 @@ export default {
     ReviewSetting: {
       name: 'Configuración de revisión |||| Configuración de revisión',
       fields: {
+        ratingSetting: { id: "Configuración de Categoria"},
+        businessUnit: { id: "Unida de Negocio"},
         id: 'Id',
         detailed: 'Detalle',
         businessUnitId: 'Unidad de Negocio',

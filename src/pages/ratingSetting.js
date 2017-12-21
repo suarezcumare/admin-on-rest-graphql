@@ -5,13 +5,15 @@ import {
   Create,
   Datagrid,
   TextField,
-  EditButton,
   DisabledInput,
   LongTextInput,
   SimpleForm,
   TextInput,
   translate,
-  required } from 'admin-on-rest';
+  required,
+  Show,
+  SimpleShowLayout,
+  ShowButton } from 'admin-on-rest';
 
 
 const RatingSettingPagination = () => {
@@ -25,9 +27,20 @@ export const RatingSettingList = (props) => (
       <TextField source="code" sortable={false} />
       <TextField source="name" sortable={false} />
       <TextField source="description" sortable={false} />
-      <EditButton />
+      <ShowButton />
     </Datagrid>
   </List>
+);
+
+export const RatingSettingShow = (props) => (
+  <Show title={<RatingSettingTitle />} {...props}>
+      <SimpleShowLayout>
+        <TextField source="id" sortable={false} />
+        <TextField source="code" sortable={false} />
+        <TextField source="name" sortable={false} />
+        <TextField source="description" sortable={false} />
+      </SimpleShowLayout>
+  </Show>
 );
 
 

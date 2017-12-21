@@ -5,12 +5,14 @@ import {
   Create,
   Datagrid,
   TextField,
-  EditButton,
   DisabledInput,
   SimpleForm,
   TextInput,
   translate,
-  required } from 'admin-on-rest';
+  required,
+  Show,
+  SimpleShowLayout,
+  ShowButton } from 'admin-on-rest';
 
 
 const ReviewCategorySettingPagination = () => {
@@ -22,11 +24,22 @@ export const ReviewCategorySettingList = (props) => (
     <Datagrid>
       <TextField source="id" sortable={false} />
       <TextField source="code" sortable={false} />
-      <TextField source="reviewSettingId" />
-      <TextField source="categorySettingId" />
-      <EditButton />
+      <TextField source="reviewSettingId" sortable={false} />
+      <TextField source="categorySettingId" sortable={false} />
+      <ShowButton />
     </Datagrid>
   </List>
+);
+
+export const ReviewCategorySettingShow = (props) => (
+  <Show title={<ReviewCategorySettingTitle />} {...props}>
+      <SimpleShowLayout>
+      <TextField source="id" />
+      <TextField source="code" />
+      <TextField source="reviewSettingId" />
+      <TextField source="categorySettingId" />
+      </SimpleShowLayout>
+  </Show>
 );
 
 
@@ -44,6 +57,7 @@ export const ReviewCategorySettingEdit = (props) => (
     </SimpleForm>
   </Edit>
 );
+
 
 export const ReviewCategorySettingCreate = (props) => (
   <Create {...props}>
