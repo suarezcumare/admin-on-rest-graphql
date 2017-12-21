@@ -1,0 +1,5 @@
+type Country @model {
+  id: ID! @isUnique
+  name: String! @isUnique
+  code: String! @isUnique
+}
