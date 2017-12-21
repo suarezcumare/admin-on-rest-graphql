@@ -17,7 +17,9 @@ import {
   SelectInput,
   ReferenceInput,
   BooleanField,
-  NullableBooleanInput } from 'admin-on-rest';
+  NullableBooleanInput,
+  Responsive,
+  SimpleList } from 'admin-on-rest';
 
 
 const ReviewSettingPagination = () => {
@@ -26,17 +28,28 @@ const ReviewSettingPagination = () => {
 
 export const ReviewSettingList = (props) => (
   <List {...props} pagination={<ReviewSettingPagination />}>
-    <Datagrid>
-      <TextField source="id" sortable={false} />
-      <BooleanField source="detailed" sortable={false}/>
-      <ReferenceField source="businessUnit.id" reference="BusinessUnit" linkType="show" sortable={false}>
-      <TextField source="name" />
-      </ReferenceField>
-      <ReferenceField source="ratingSetting.id" reference="RatingSetting" linkType="show" sortable={false}>
-        <TextField source="name" />
-      </ReferenceField>
-      <ShowButton />
-    </Datagrid>
+    <Responsive
+      small={
+        <SimpleList
+            primaryText={record => record.businessUnit.name}
+            secondaryText={record => record.detailed}
+            tertiaryText={record => record.id}
+        />
+      }
+      medium={
+        <Datagrid>
+          <TextField source="id" sortable={false} />
+          <BooleanField source="detailed" sortable={false}/>
+          <ReferenceField source="businessUnit.id" reference="BusinessUnit" linkType="show" sortable={false}>
+            <TextField source="name" />
+          </ReferenceField>
+          <ReferenceField source="ratingSetting.id" reference="RatingSetting" linkType="show" sortable={false}>
+            <TextField source="name" />
+          </ReferenceField>
+          <ShowButton />
+        </Datagrid>
+      }
+    />
   </List>
 );
 

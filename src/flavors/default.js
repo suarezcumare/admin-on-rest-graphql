@@ -76,7 +76,18 @@ export default {
   },
   [CREATE]: {
     operationName: resourceType => `create${resourceType.name}`,
-    getParameters: params => ( params.data ),
+    // getParameters: params => ( params.data ),
+    getParameters: params => {
+      const _params = {};
+      for( var _param in params.data) {
+        if (typeof params.data[_param] === 'object') {
+          _params[_param+"Id"] = params.data[_param].id 
+        } else {
+         _params[_param] = params.data[_param] 
+       }
+      }
+       return _params
+    },
 
     parseResponse: (response, resource, apolloParams) => {
       const { data } = response;

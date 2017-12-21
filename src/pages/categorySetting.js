@@ -13,7 +13,9 @@ import {
   required,
   Show,
   SimpleShowLayout,
-  ShowButton } from 'admin-on-rest';
+  ShowButton,
+  Responsive,
+  SimpleList } from 'admin-on-rest';
 
 
 const CategorySettingPagination = () => {
@@ -22,14 +24,25 @@ const CategorySettingPagination = () => {
 
 export const CategorySettingList = (props) => (
   <List {...props} pagination={<CategorySettingPagination />}>
-    <Datagrid>
-      <TextField source="id" sortable={false} />
-      <TextField source="code" sortable={false} />
-      <TextField source="name" sortable={false} />
-      <TextField source="title" sortable={false}/>
-      <TextField source="description" sortable={false} />
-      <ShowButton />
-    </Datagrid>
+    <Responsive
+      small={
+        <SimpleList
+            primaryText={record => record.name}
+            secondaryText={record => record.description}
+            tertiaryText={record => record.id}
+        />
+      }
+      medium={
+        <Datagrid>
+          <TextField source="id" sortable={false} />
+          <TextField source="code" sortable={false} />
+          <TextField source="name" sortable={false} />
+          <TextField source="title" sortable={false}/>
+          <TextField source="description" sortable={false} />
+          <ShowButton />
+        </Datagrid>
+      }
+    />
   </List>
 );
 

@@ -15,7 +15,9 @@ import {
   ShowButton,
   ReferenceField,
   ReferenceInput,
-  SelectInput } from 'admin-on-rest';
+  SelectInput,
+  Responsive,
+  SimpleList } from 'admin-on-rest';
 
 
 const BusinessUnitPagination = () => {
@@ -24,17 +26,30 @@ const BusinessUnitPagination = () => {
 
 export const BusinessUnitList = (props) => (
   <List {...props} pagination={<BusinessUnitPagination />}>
-    <Datagrid>
-      <TextField source="id" sortable={false} />
-      <TextField source="code" sortable={false} />
-      <TextField source="name" sortable={false} />
-      <ReferenceField source="country.id" reference="Country" linkType="show" sortable={false}>
-          <TextField source="name" />
-      </ReferenceField>
-      <ShowButton />
-    </Datagrid>
+    <Responsive
+      small={
+        <SimpleList
+          primaryText={record => record.name}
+          secondaryText={record => record.code}
+          tertiaryText={record => record.id}
+        />
+      }
+      medium={
+        <Datagrid>
+          <TextField source="id" sortable={false} />
+          <TextField source="code" sortable={false} />
+          <TextField source="name" sortable={false} />
+          <ReferenceField source="country.id" reference="Country" linkType="show" sortable={false}>
+              <TextField source="name" />
+          </ReferenceField>
+          <ShowButton />
+        </Datagrid>
+      }
+    />
   </List>
 );
+
+
 
 
 export const BusinessUnitShow = (props) => (

@@ -24,8 +24,31 @@ query categorySettings {
 
 
 export const createCategorySettingQuery = gql`
-mutation createCategorySetting($code: String!, $name: String!, $title: String!, $description: String!){
-  createCategorySetting(code: $code, name: $name, title: $title, description: $description){
+mutation createCategorySetting($id: ID, $code: String!, $name: String!, $title: String!, $description: String!){
+  createCategorySetting(id: $id,code: $code, name: $name, title: $title, description: $description){
+    id
+    code
+    name
+    title
+    description
+  }
+}`;
+
+export const updateCategorySettingQuery = gql`
+mutation updateCategorySetting($id: ID!, $code: String!, $name: String!, $title: String!, $description: String!){
+  updateCategorySetting(id: $id,code: $code, name: $name, title: $title, description: $description){
+    id
+    code
+    name
+    title
+    description
+  }
+}`;
+
+
+export const deleteCategorySettingQuery = gql`
+mutation deleteCategorySetting($id: ID!){
+  deleteCategorySetting(id: $id){
     id
     code
     name

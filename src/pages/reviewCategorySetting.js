@@ -7,12 +7,16 @@ import {
   TextField,
   DisabledInput,
   SimpleForm,
-  TextInput,
   translate,
   required,
   Show,
   SimpleShowLayout,
-  ShowButton } from 'admin-on-rest';
+  ShowButton,
+  ReferenceField,
+  SelectInput,
+  ReferenceInput,
+  Responsive,
+  SimpleList } from 'admin-on-rest';
 
 
 const ReviewCategorySettingPagination = () => {
@@ -21,13 +25,27 @@ const ReviewCategorySettingPagination = () => {
 
 export const ReviewCategorySettingList = (props) => (
   <List {...props} pagination={<ReviewCategorySettingPagination />}>
-    <Datagrid>
-      <TextField source="id" sortable={false} />
-      <TextField source="code" sortable={false} />
-      <TextField source="reviewSettingId" sortable={false} />
-      <TextField source="categorySettingId" sortable={false} />
-      <ShowButton />
-    </Datagrid>
+    <Responsive
+      small={
+        <SimpleList
+            primaryText={record => record.reviewSetting.name}
+            secondaryText={record => record.categorySetting.id}
+            tertiaryText={record => record.id}
+        />
+      }
+      medium={
+        <Datagrid>
+          <TextField source="id" sortable={false} />
+          <ReferenceField source="categorySetting.id" reference="CategorySetting" linkType="show" sortable={false}>
+            <TextField source="id" />
+          </ReferenceField>
+          <ReferenceField source="reviewSetting.id" reference="ReviewSetting" linkType="show" sortable={false}>
+            <TextField source="name" />
+          </ReferenceField>
+          <ShowButton />
+        </Datagrid>
+      }
+    />
   </List>
 );
 
@@ -35,9 +53,12 @@ export const ReviewCategorySettingShow = (props) => (
   <Show title={<ReviewCategorySettingTitle />} {...props}>
       <SimpleShowLayout>
       <TextField source="id" />
-      <TextField source="code" />
-      <TextField source="reviewSettingId" />
-      <TextField source="categorySettingId" />
+      <ReferenceField source="reviewSetting.id" reference="ReviewSetting" linkType="show" sortable={false}>
+        <TextField source="id" />
+      </ReferenceField>
+      <ReferenceField source="categorySetting.id" reference="CategorySetting" linkType="show" sortable={false}>
+        <TextField source="name" />
+      </ReferenceField>
       </SimpleShowLayout>
   </Show>
 );
@@ -51,9 +72,12 @@ export const ReviewCategorySettingEdit = (props) => (
   <Edit title={<ReviewCategorySettingTitle />} {...props}>
     <SimpleForm>
       <DisabledInput source="id"  />
-      <TextInput source="code" validate={required} />
-      <TextInput source="reviewSettingId" validate={required} />
-      <TextInput source="categorySettingId" validate={required} />
+      <ReferenceInput source="reviewSetting.id" reference="ReviewSetting" allowEmpty validate={required}>
+        <SelectInput optionText="id" />
+      </ReferenceInput>
+      <ReferenceInput source="categorySetting.id" reference="CategorySetting" allowEmpty validate={required}>
+        <SelectInput optionText="name" />
+      </ReferenceInput>
     </SimpleForm>
   </Edit>
 );
@@ -62,9 +86,12 @@ export const ReviewCategorySettingEdit = (props) => (
 export const ReviewCategorySettingCreate = (props) => (
   <Create {...props}>
     <SimpleForm>
-      <TextInput source="code" validate={required} />
-      <TextInput source="reviewSettingId" validate={required} />
-      <TextInput source="categorySettingId" validate={required} />
+      <ReferenceInput source="reviewSetting.id" reference="ReviewSetting" allowEmpty validate={required}>
+        <SelectInput optionText="id" />
+      </ReferenceInput>
+      <ReferenceInput source="categorySetting.id" reference="CategorySetting" allowEmpty validate={required}>
+        <SelectInput optionText="name" />
+      </ReferenceInput>
     </SimpleForm>
   </Create>
 );

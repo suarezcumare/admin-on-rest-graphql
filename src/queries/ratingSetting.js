@@ -22,8 +22,29 @@ query ratingSettings {
 
 
 export const createRatingSettingQuery = gql`
-mutation createRatingSetting($code: String!, $name: String!, $description: String!){
-  createRatingSetting(code: $code, name: $name, description: $description){
+mutation createRatingSetting($id: ID, $code: String!, $name: String!, $description: String!){
+  createRatingSetting(id: $id,code: $code, name: $name, description: $description){
+    id
+    code
+    name
+    description
+  }
+}`;
+
+export const updateRatingSettingQuery = gql`
+mutation updateRatingSetting($id: ID!, $code: String!, $name: String!, $description: String!){
+  updateRatingSetting(id: $id,code: $code, name: $name, description: $description){
+    id
+    code
+    name
+    description
+  }
+}`;
+
+
+export const deleteRatingSettingQuery = gql`
+mutation deleteRatingSetting($id: ID!){
+  deleteRatingSetting(id: $id){
     id
     code
     name

@@ -23,7 +23,7 @@ export default {
       }
     },
     CategorySetting: {
-      name: 'Category Setting |||| Category Settings',
+      name: 'Category |||| Category',
       fields: {
         name: 'Name',
         id: 'Id',
@@ -33,7 +33,7 @@ export default {
       }
     },
     RatingSetting: {
-      name: 'Rating Setting |||| Rating Settings',
+      name: 'Rating |||| Rating',
       fields: {
         name: 'Name',
         id: 'Id',
@@ -42,15 +42,15 @@ export default {
       }
     },
     ReviewCategorySetting: {
-      name: 'Review Category Setting |||| Review Category Settings',
+      name: 'Review Category |||| Review Category',
       fields: {
+        reviewSetting: { id: "Review Setting"},
+        categorySetting: { id: "Category Setting"},
         id: 'Id',
-        reviewSettingId: 'Review Setting',
-        categorySettingId: 'Category Setting',
       }
     },
     ReviewSetting: {
-      name: 'Review Setting |||| Review Settings',
+      name: 'Review |||| Review',
       fields: {
         ratingSetting: { id: "Rating Setting"},
         businessUnit: { id: "Business Unit"},

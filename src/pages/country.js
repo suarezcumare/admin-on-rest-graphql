@@ -12,7 +12,9 @@ import {
   required,
   Show,
   SimpleShowLayout,
-  ShowButton } from 'admin-on-rest';
+  ShowButton,
+  Responsive,
+  SimpleList } from 'admin-on-rest';
 
 
 const CountryPagination = () => {
@@ -21,12 +23,23 @@ const CountryPagination = () => {
 
 export const CountryList = (props) => (
   <List {...props} pagination={<CountryPagination />}>
-    <Datagrid>
-      <TextField source="id" sortable={false} />
-      <TextField source="code" sortable={false} />
-      <TextField source="name" sortable={false} />
-      <ShowButton />
-    </Datagrid>
+    <Responsive
+      small={
+        <SimpleList
+          primaryText={record => record.name}
+          secondaryText={record => record.code}
+          tertiaryText={record => record.id}
+        />
+      }
+      medium={
+        <Datagrid>
+          <TextField source="id" sortable={false} />
+          <TextField source="code" sortable={false} />
+          <TextField source="name" sortable={false} />
+          <ShowButton />
+        </Datagrid>
+      }
+    />
   </List>
 );
 

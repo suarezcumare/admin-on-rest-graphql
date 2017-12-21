@@ -23,7 +23,7 @@ export default {
       }
     },
     CategorySetting: {
-      name: 'Configuración de Clasificación |||| Configuración de Clasificaciones',
+      name: 'Clasificación |||| Clasificaciones',
       fields: {
         name: 'Nombre',
         id: 'Id',
@@ -32,7 +32,7 @@ export default {
       }
     },
     RatingSetting: {
-      name: 'Configuración de Categoria |||| Configuración de Categorias',
+      name: 'Categoria |||| Categorias',
       fields: {
         name: 'Nombre',
         id: 'Id',
@@ -42,15 +42,15 @@ export default {
       }
     },
     ReviewCategorySetting: {
-      name: 'Configuración de revisión de categoria |||| Configuración de revisión de categorias',
+      name: 'Revisión de categoria |||| Revisión de categorias',
       fields: {
+        reviewSetting: { id: "Configuración de revisión"},
+        categorySetting: { id: "Configuración de categoria"},
         id: 'Id',
-        reviewSettingId: 'Configuración de revisión',
-        categorySettingId: 'Configuración de categoria',
       }
     },
     ReviewSetting: {
-      name: 'Configuración de revisión |||| Configuración de revisión',
+      name: 'Revisión |||| Revisión',
       fields: {
         ratingSetting: { id: "Configuración de Categoria"},
         businessUnit: { id: "Unida de Negocio"},
@@ -91,14 +91,14 @@ export default {
     input: {
       file: {
         upload_several:
-            'Drop some files to upload, or click to select one.',
-        upload_single: 'Drop a file to upload, or click to select it.',
+            'Click para selecionar un archivo',
+        upload_single: 'Click para selecionar un archivo',
       },
       image: {
         upload_several:
-            'Drop some pictures to upload, or click to select one.',
+            'Click para selecionar una imagen',
         upload_single:
-            'Drop a picture to upload, or click to select it.',
+            'Click para selecionar una imagen',
       },
     },
     message: {
@@ -107,13 +107,13 @@ export default {
       are_you_sure: '¿Estas Seguro?',
       about: 'Acerca',
       not_found:
-          'Either you typed a wrong URL, or you followed a bad link.',
+          'O bien escribió una URL incorrecta o siguió un enlace incorrecto.',
     },
     navigation: {
-      no_results: 'No results found',
-      page_out_of_boundaries: 'Page number %{page} out of boundaries',
-      page_out_from_end: 'Cannot go after last page',
-      page_out_from_begin: 'Cannot go before page 1',
+      no_results: 'No se encontraron resultados',
+      page_out_of_boundaries: 'Pagina numero %{page}',
+      page_out_from_end: 'No exiten mas paginas',
+      page_out_from_begin: 'No existen paginas antes',
       page_range_info: '%{offsetBegin}-%{offsetEnd} of %{total}',
       next: 'Proximo',
       prev: 'Atras',
@@ -134,12 +134,12 @@ export default {
     },
     validation: {
       required: 'Requerido',
-      minLength: 'Must be %{min} characters at least',
-      maxLength: 'Must be %{max} characters or less',
-      minValue: 'Must be at least %{min}',
-      maxValue: 'Must be %{max} or less',
-      number: 'Must be a number',
-      email: 'Must be a valid email',
+      minLength: 'Debe ser al menos %{min} caracteres',
+      maxLength: 'Debe ser maximos %{max} de caracteres',
+      minValue: 'Debe ser al menos %{min}',
+      maxValue: 'Debe ser %{max} o menos',
+      number: 'Debe ser un numero',
+      email: 'Debe ser un email valido',
     },
   },
 };

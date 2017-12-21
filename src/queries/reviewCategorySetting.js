@@ -20,8 +20,26 @@ query reviewCategorySettings {
 
 
 export const createReviewCategorySettingQuery = gql`
-mutation createReviewCategorySetting($reviewSetting: Id!, $categorySetting: Id!){
-  createReviewCategorySetting(reviewSetting: $reviewSetting, categorySetting: $categorySetting){
+mutation createReviewCategorySetting($id: ID, $reviewSettingId: ID!, $categorySettingId: ID!){
+  createReviewCategorySetting(id: $id, reviewSetting: $reviewSettingId, categorySettingId: $categorySettingId){
+    id
+    reviewSettingId
+    categorySettingId
+  }
+}`;
+
+export const updateReviewCategorySettingQuery = gql`
+mutation updateReviewCategorySetting($id: ID!, $reviewSettingId: ID!, $categorySettingId: ID!){
+  updateReviewCategorySetting(id: $id, reviewSettingId: $reviewSettingId, categorySettingId: $categorySettingId){
+    id
+    reviewSettingId
+    categorySettingId
+  }
+}`;
+
+export const deleteReviewCategorySettingQuery = gql`
+mutation deleteReviewCategorySetting($id: ID!){
+  deleteReviewCategorySetting(id: $id){
     id
     reviewSettingId
     categorySettingId
