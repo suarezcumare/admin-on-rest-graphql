@@ -1,6 +1,14 @@
 import pluralize from 'pluralize';
-
-import { CREATE, DELETE, GET_LIST, GET_MANY, GET_MANY_REFERENCE, GET_ONE, UPDATE, QUERY_TYPES } from '../constants';
+import {
+  CREATE,
+  DELETE,
+  GET_LIST,
+  GET_MANY,
+  GET_MANY_REFERENCE,
+  GET_ONE,
+  UPDATE,
+  QUERY_TYPES
+} from '../constants';
 
 export const buildGetListErrorMessage = resource =>
     `The data returned by the graphql endpoint for the GET_LIST query on resource ${resource} does not contains a \`totalCount\` property which is needed to build the pagination. The query result must conform to this schema: \`{ totalCount: Int, items: [] }\``; // eslint-disable-line
@@ -24,27 +32,22 @@ export default {
       const { data } = response;
       const dataKey = getApolloResultKey(GET_LIST, apolloParams);
       const dataForType = data[dataKey];
-      // if (typeof dataForType.totalCount !== 'number') {
-      //     throw new Error(buildGetListErrorMessage(resource));
-      // }
       return {
           data: dataForType.map(x => x),
           total: dataForType.length,
       };
     },
   },
+
   [GET_MANY]: {
     parseResponse: (response, resource, apolloParams) => {
       const { data } = response;
       const dataKey = getApolloResultKey(GET_MANY, apolloParams);
       const dataForType = data[dataKey];
-      // if (dataForType.totalCount) {
-      //   return { data: dataForType.map(x => x) };
-      // }
-
       return { data: dataForType };
     },
   },
+
   [GET_MANY_REFERENCE]: {
     operationName: resourceType => `${pluralize(resourceType.name)}`,
     getParameters: params => ({
@@ -64,6 +67,7 @@ export default {
       return { data: dataForType };
     },
   },
+
   [GET_ONE]: {
     operationName: resourceType => `${resourceType.name}`,
     getParameters: params => ({ id: params.id }),
@@ -74,9 +78,9 @@ export default {
       return { data: data[dataKey] };
     },
   },
+
   [CREATE]: {
     operationName: resourceType => `create${resourceType.name}`,
-    // getParameters: params => ( params.data ),
     getParameters: params => {
       const _params = {};
       for( var _param in params.data) {
@@ -96,6 +100,7 @@ export default {
       return { data: data[dataKey] };
     },
   },
+  
   [UPDATE]: {
     operationName: resourceType => `update${resourceType.name}`,
     getParameters: params => ( params.data ),
@@ -106,6 +111,7 @@ export default {
         return { data: data[dataKey] };
     },
   },
+  
   [DELETE]: {
     operationName: resourceType => `remove${resourceType.name}`,
     getParameters: params => ({ id: params.id }),

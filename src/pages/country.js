@@ -15,7 +15,9 @@ import {
   ShowButton,
   Responsive,
   SimpleList } from 'admin-on-rest';
+import countryIcon from 'material-ui/svg-icons/social/public';
 
+export const CountryIcon = countryIcon;
 
 const CountryPagination = () => {
     return ""
@@ -32,7 +34,7 @@ export const CountryList = (props) => (
         />
       }
       medium={
-        <Datagrid>
+        <Datagrid bodyOptions={{ showRowHover: true }}>
           <TextField source="id" sortable={false} />
           <TextField source="code" sortable={false} />
           <TextField source="name" sortable={false} />
@@ -52,7 +54,6 @@ export const CountryShow = (props) => (
       </SimpleShowLayout>
   </Show>
 );
-
 
 const CountryTitle = translate(({ record, translate }) =>  
   <span>{translate('resources.Country.name', { smart_count: 1 })} {record.name}</span>

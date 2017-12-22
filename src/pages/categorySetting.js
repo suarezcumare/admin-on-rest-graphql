@@ -16,7 +16,9 @@ import {
   ShowButton,
   Responsive,
   SimpleList } from 'admin-on-rest';
+import categorySettingIcon from 'material-ui/svg-icons/action/bookmark';
 
+export const CategorySettingIcon = categorySettingIcon;
 
 const CategorySettingPagination = () => {
     return ""
@@ -33,7 +35,7 @@ export const CategorySettingList = (props) => (
         />
       }
       medium={
-        <Datagrid>
+        <Datagrid bodyOptions={{ showRowHover: true }}>
           <TextField source="id" sortable={false} />
           <TextField source="code" sortable={false} />
           <TextField source="name" sortable={false} />
@@ -46,7 +48,6 @@ export const CategorySettingList = (props) => (
   </List>
 );
 
-
 export const CategorySettingShow = (props) => (
   <Show title={<CategorySettingTitle />} {...props}>
       <SimpleShowLayout>
@@ -58,7 +59,6 @@ export const CategorySettingShow = (props) => (
       </SimpleShowLayout>
   </Show>
 );
-
 
 const CategorySettingTitle = translate(({ record, translate }) =>  
   <span>{translate('resources.CategorySetting.name', { smart_count: 1 })} {record.name}</span>

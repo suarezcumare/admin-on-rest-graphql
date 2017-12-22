@@ -17,7 +17,9 @@ import {
   ReferenceInput,
   Responsive,
   SimpleList } from 'admin-on-rest';
+import reviewCategorySettingIcon from 'material-ui/svg-icons/action/settings';  
 
+export const ReviewCategorySettingIcon = reviewCategorySettingIcon;
 
 const ReviewCategorySettingPagination = () => {
     return ""
@@ -34,7 +36,7 @@ export const ReviewCategorySettingList = (props) => (
         />
       }
       medium={
-        <Datagrid>
+        <Datagrid bodyOptions={{ showRowHover: true }}>
           <TextField source="id" sortable={false} />
           <ReferenceField source="categorySetting.id" reference="CategorySetting" linkType="show" sortable={false}>
             <TextField source="id" />
@@ -63,7 +65,6 @@ export const ReviewCategorySettingShow = (props) => (
   </Show>
 );
 
-
 const ReviewCategorySettingTitle = translate(({ record, translate }) =>  
   <span>{translate('resources.ReviewCategorySetting.name', { smart_count: 1 })} {record.name}</span>
 );
@@ -81,7 +82,6 @@ export const ReviewCategorySettingEdit = (props) => (
     </SimpleForm>
   </Edit>
 );
-
 
 export const ReviewCategorySettingCreate = (props) => (
   <Create {...props}>

@@ -24,7 +24,7 @@ export default {
       }
     },
     CategorySetting: {
-      name: 'Categoria |||| Categorias',
+      name: 'Clasificación |||| Clasificaciones',
       fields: {
         name: 'Nombre',
         id: 'Id',
@@ -33,7 +33,7 @@ export default {
       }
     },
     RatingSetting: {
-      name: 'Clasificación |||| Clasificaciones',
+      name: 'Categoria |||| Categorias',
       fields: {
         name: 'Nombre',
         id: 'Id',

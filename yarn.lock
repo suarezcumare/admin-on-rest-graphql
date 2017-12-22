@@ -224,6 +224,10 @@ aor-graphql-client@^0.0.1-1:
     lodash.merge "~4.6.0"
     pluralize "~4.0.0"
 
+aor-language-portugues@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/aor-language-portugues/-/aor-language-portugues-1.0.3.tgz#a474032169af1799545228f3afac52710912c22c"
+
 aor-language-spanish@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/aor-language-spanish/-/aor-language-spanish-1.0.3.tgz#c1b2183d9f2a92dfe519bcec9b4093a39eea7ace"

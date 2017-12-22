@@ -1,4 +1,9 @@
-import { AUTH_LOGIN, AUTH_LOGOUT, AUTH_CHECK, AUTH_ERROR } from 'admin-on-rest';
+import {
+  AUTH_LOGIN,
+  AUTH_LOGOUT,
+  AUTH_CHECK,
+  AUTH_ERROR
+} from 'admin-on-rest';
 
 export default (type, params) => {
     if (type === AUTH_LOGIN) {
@@ -12,7 +17,12 @@ export default (type, params) => {
         return Promise.resolve();
     }
     if (type === AUTH_ERROR) {
-        return Promise.resolve();
+      const { status } = params;
+      if (status === 401 || status === 403) {
+          localStorage.removeItem('token');
+          return Promise.reject();
+      }
+      return Promise.resolve();
     }
     if (type === AUTH_CHECK) {
         return localStorage.getItem('username') ? Promise.resolve() : Promise.reject();

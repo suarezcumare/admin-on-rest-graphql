@@ -18,7 +18,9 @@ import {
   SelectInput,
   Responsive,
   SimpleList } from 'admin-on-rest';
+import businessUnitIcon from 'material-ui/svg-icons/communication/business';
 
+export const BusinessUnitIcon = businessUnitIcon;
 
 const BusinessUnitPagination = () => {
     return ""
@@ -35,7 +37,7 @@ export const BusinessUnitList = (props) => (
         />
       }
       medium={
-        <Datagrid>
+        <Datagrid bodyOptions={{ showRowHover: true }}>
           <TextField source="id" sortable={false} />
           <TextField source="code" sortable={false} />
           <TextField source="name" sortable={false} />
@@ -49,9 +51,6 @@ export const BusinessUnitList = (props) => (
   </List>
 );
 
-
-
-
 export const BusinessUnitShow = (props) => (
   <Show title={<BusinessUnitTitle />} {...props}>
       <SimpleShowLayout>
@@ -64,7 +63,6 @@ export const BusinessUnitShow = (props) => (
       </SimpleShowLayout>
   </Show>
 );
-
 
 const BusinessUnitTitle = translate(({ record, translate }) =>  
   <span>{translate('resources.BusinessUnit.name', { smart_count: 1 })} {record.name}</span>

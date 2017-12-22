@@ -16,7 +16,9 @@ import {
   ShowButton,
   Responsive,
   SimpleList } from 'admin-on-rest';
+import ratingSettingIcon from 'material-ui/svg-icons/action/swap-vert';  
 
+export const RatingSettingIcon = ratingSettingIcon;
 
 const RatingSettingPagination = () => {
     return ""
@@ -33,7 +35,7 @@ export const RatingSettingList = (props) => (
         />
       }
       medium={
-        <Datagrid>
+        <Datagrid bodyOptions={{ showRowHover: true }}>
           <TextField source="id" sortable={false} />
           <TextField source="code" sortable={false} />
           <TextField source="name" sortable={false} />
@@ -55,7 +57,6 @@ export const RatingSettingShow = (props) => (
       </SimpleShowLayout>
   </Show>
 );
-
 
 const RatingSettingTitle = translate(({ record, translate }) =>  
   <span>{translate('resources.RatingSetting.name', { smart_count: 1 })} {record.name}</span>

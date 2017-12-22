@@ -1,4 +1,5 @@
 export default {
+  'Validation error': 'Registration already exists or the registry has validation errors',
   dashboard: {
     welcome: "Welcome",
     text: "......"

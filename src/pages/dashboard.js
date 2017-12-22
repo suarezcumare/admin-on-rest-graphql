@@ -1,4 +1,3 @@
-// in src/Dashboard.js
 import React from 'react';
 import { Card, CardHeader, CardText } from 'material-ui/Card';
 import { translate } from 'admin-on-rest';

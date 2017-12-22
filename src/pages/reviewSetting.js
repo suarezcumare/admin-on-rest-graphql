@@ -21,6 +21,9 @@ import {
   Responsive,
   SimpleList } from 'admin-on-rest';
 
+import reviewSettingIcon from 'material-ui/svg-icons/communication/comment';
+
+export const ReviewSettingIcon = reviewSettingIcon;
 
 const ReviewSettingPagination = () => {
     return ""
@@ -37,7 +40,7 @@ export const ReviewSettingList = (props) => (
         />
       }
       medium={
-        <Datagrid>
+        <Datagrid bodyOptions={{ showRowHover: true }}>
           <TextField source="id" sortable={false} />
           <BooleanField source="detailed" sortable={false}/>
           <ReferenceField source="businessUnit.id" reference="BusinessUnit" linkType="show" sortable={false}>
@@ -67,7 +70,6 @@ export const ReviewSettingShow = (props) => (
       </SimpleShowLayout>
   </Show>
 );
-
 
 const ReviewSettingTitle = translate(({ record, translate }) =>  
   <span>{translate('resources.ReviewSetting.name', { smart_count: 1 })} {record.name}</span>
