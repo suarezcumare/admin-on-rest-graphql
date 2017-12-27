@@ -57,11 +57,11 @@ export const ReviewSettingShow = (props) => (
   <Show title={<ReviewSettingTitle />} {...props}>
       <SimpleShowLayout>
       <TextField source="id" />
-      <BooleanField source="detailed"/>
+      <BooleanField source="detailed" headerStyle={{ textAlign: 'left' }} elStyle={{ float: 'left' }}/>
       <ReferenceField source="ratingSetting.id" reference="RatingSetting" linkType="show" sortable={false}>
         <TextField source="name" />
       </ReferenceField>
-      <BooleanField source="active" />
+      <BooleanField source="active" headerStyle={{ textAlign: 'left' }} elStyle={{ float: 'left' }} />
       </SimpleShowLayout>
   </Show>
 );

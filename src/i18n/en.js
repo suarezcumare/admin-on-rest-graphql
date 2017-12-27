@@ -89,7 +89,8 @@ export default {
         published: 'Published',
         userId: 'User ID',
         userName: 'User Name',
-        externalEntityId: 'external Entity',
+        externalEntityId: 'External Entity',
+        reviewSettingId: 'Review Setting Id'
       }
     },
   },

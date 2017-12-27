@@ -66,7 +66,7 @@ export const EntitySettingShow = (props) => (
         <ReferenceField source="businessUnit.id" reference="BusinessUnit" linkType="show" >
           <TextField source="name" />
         </ReferenceField>
-        <BooleanField source="active" />
+        <BooleanField source="active" headerStyle={{ textAlign: 'left' }} elStyle={{ float: 'left' }} />
       </SimpleShowLayout>
   </Show>
 );

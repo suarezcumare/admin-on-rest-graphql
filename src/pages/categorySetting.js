@@ -59,7 +59,7 @@ export const CategorySettingShow = (props) => (
         <TextField source="name" />
         <TextField source="title" />
         <TextField source="description" />
-        <BooleanField source="active" />
+        <BooleanField source="active" headerStyle={{ textAlign: 'left' }} elStyle={{ float: 'left' }} />
       </SimpleShowLayout>
   </Show>
 );

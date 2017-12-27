@@ -63,7 +63,7 @@ export default {
       }
     },
     ReviewSetting: {
-      name: 'Configuración de Revisión |||| Configuraciones de Revisión',
+      name: 'Configurar Revisión |||| Configurar Revisiones',
       fields: {
         ratingSetting: { id: "Configuración de Categoria"},
         businessUnit: { id: "Unida de Negocio"},
@@ -83,7 +83,8 @@ export default {
         published: 'Publicado',
         userId: 'Usuario ID',
         userName: 'Nombre del usuario',
-        externalEntityId: 'Entidad external',
+        externalEntityId: 'Entidad externa',
+        reviewSettingId: 'Configuración de Revisión'
       }
     },
   },

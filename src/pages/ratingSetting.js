@@ -57,7 +57,7 @@ export const RatingSettingShow = (props) => (
         <TextField source="code"  />
         <TextField source="name" />
         <TextField source="description" />
-        <BooleanField source="active" />
+        <BooleanField source="active" headerStyle={{ textAlign: 'left' }} elStyle={{ float: 'left' }} />
       </SimpleShowLayout>
   </Show>
 );

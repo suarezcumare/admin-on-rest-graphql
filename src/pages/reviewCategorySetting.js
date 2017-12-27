@@ -64,7 +64,7 @@ export const ReviewCategorySettingShow = (props) => (
       <ReferenceField source="categorySetting.id" reference="CategorySetting" linkType="show" >
         <TextField source="name" />
       </ReferenceField>
-      <BooleanField source="active" />
+      <BooleanField source="active" headerStyle={{ textAlign: 'left' }} elStyle={{ float: 'left' }} />
       </SimpleShowLayout>
   </Show>
 );

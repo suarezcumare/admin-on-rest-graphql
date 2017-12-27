@@ -59,16 +59,16 @@ export const ReviewList = (props) => (
 export const ReviewShow = (props) => (
   <Show title={<ReviewTitle />} {...props}>
       <SimpleShowLayout>
-      <TextField source="id" sortable={false} />
-      <TextField source="comment" sortable={false} />
-      <TextField source="value" sortable={false} />
-      <TextField source="userId" sortable={false} />
-      <TextField source="userName" sortable={false} />
-      <BooleanField source="published" sortable={false} />
-      <ReferenceField source="reviewSetting.id" reference="ReviewSetting" linkType="show" sortable={false}>
+      <TextField source="id" />
+      <TextField source="comment" />
+      <TextField source="value" />
+      <TextField source="userId" />
+      <TextField source="userName" />
+      <BooleanField source="published" headerStyle={{ textAlign: 'left' }} elStyle={{ float: 'left' }} />
+      <ReferenceField source="reviewSetting.id" reference="ReviewSetting" linkType="show" >
         <TextField source="id" />
       </ReferenceField>
-      <BooleanField source="active" sortable={false} />
+      <BooleanField source="active" headerStyle={{ textAlign: 'left' }} elStyle={{ float: 'left' }} />
       </SimpleShowLayout>
   </Show>
 );
@@ -81,6 +81,10 @@ export const ReviewEdit = (props) => (
   <Edit title={<ReviewTitle />} {...props}>
     <SimpleForm>
       <DisabledInput source="id"  />
+      <DisabledInput source="userId"  />
+      <DisabledInput source="userName"  />
+      <DisabledInput source="reviewSettingId"  />
+      <DisabledInput source="externalEntityId"  />
       <LongTextInput source="comment" validate={required} />
       <NumberInput source="value" step={1} validate={required}/>
       <NullableBooleanInput  source="published" allowEmpty={false} validate={required} />
@@ -88,14 +92,3 @@ export const ReviewEdit = (props) => (
     </SimpleForm>
   </Edit>
 );
-
-// export const ReviewCreate = (props) => (
-//   <Create {...props}>
-//     <SimpleForm>
-//     <LongTextInput source="comment" validate={required} />
-//     <NumberInput source="value" step={1} validate={required}/>
-//     <NullableBooleanInput source="published" allowEmpty={false} validate={required} />
-//     <NullableBooleanInput source="active" allowEmpty={false} validate={required} />
-//     </SimpleForm>
-//   </Create>
-// );

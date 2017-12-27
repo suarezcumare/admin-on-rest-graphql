@@ -54,7 +54,7 @@ export const CountryShow = (props) => (
         <TextField source="id" />
         <TextField source="code" />
         <TextField source="name" />
-        <BooleanField source="active" />
+        <BooleanField source="active" headerStyle={{ textAlign: 'left' }} elStyle={{ float: 'left' }} />
       </SimpleShowLayout>
   </Show>
 );
