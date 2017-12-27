@@ -41,10 +41,10 @@ export const ReviewCategorySettingList = (props) => (
         <Datagrid bodyOptions={{ showRowHover: true }}>
           <TextField source="id" sortable={false} />
           <ReferenceField source="categorySetting.id" reference="CategorySetting" linkType="show" sortable={false}>
-            <TextField source="id" />
+            <TextField source="name" />
           </ReferenceField>
           <ReferenceField source="reviewSetting.id" reference="ReviewSetting" linkType="show" sortable={false}>
-            <TextField source="name" />
+            <TextField source="id" />
           </ReferenceField>
           <BooleanField source="active" sortable={false} />
           <ShowButton />
@@ -59,10 +59,10 @@ export const ReviewCategorySettingShow = (props) => (
       <SimpleShowLayout>
       <TextField source="id" />
       <ReferenceField source="reviewSetting.id" reference="ReviewSetting" linkType="show" >
-        <TextField source="id" />
+        <TextField source="name" />
       </ReferenceField>
       <ReferenceField source="categorySetting.id" reference="CategorySetting" linkType="show" >
-        <TextField source="name" />
+        <TextField source="id" />
       </ReferenceField>
       <BooleanField source="active" />
       </SimpleShowLayout>

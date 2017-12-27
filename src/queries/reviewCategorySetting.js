@@ -7,6 +7,18 @@ query reviewCategorySettingById($id: ID!) {
     reviewSettingId
     categorySettingId
     active
+    categorySetting {
+      id
+      code
+      name
+      active
+      description
+    }
+    reviewSetting {
+      id
+      active
+      detailed
+    }
   }
 }`;
 
@@ -17,6 +29,18 @@ query reviewCategorySettings {
     reviewSettingId
     categorySettingId
     active
+    categorySetting {
+      id
+      code
+      name
+      active
+      description
+    }
+    reviewSetting {
+      id
+      active
+      detailed
+    }
   }
 }`;
 
@@ -28,6 +52,18 @@ mutation createReviewCategorySetting($reviewSettingId: ID!, $categorySettingId: 
     reviewSettingId
     categorySettingId
     active
+    categorySetting {
+      id
+      code
+      name
+      active
+      description
+    }
+    reviewSetting {
+      id
+      active
+      detailed
+    }
   }
 }`;
 
@@ -38,6 +74,18 @@ mutation editReviewCategorySetting($id: ID!, $reviewSettingId: ID!, $categorySet
     reviewSettingId
     categorySettingId
     active
+    categorySetting {
+      id
+      code
+      name
+      active
+      description
+    }
+    reviewSetting {
+      id
+      active
+      detailed
+    }
   }
 }`;
 
@@ -48,5 +96,17 @@ mutation deleteReviewCategorySetting($id: ID!){
     reviewSettingId
     categorySettingId
     active
+    categorySetting {
+      id
+      code
+      name
+      active
+      description
+    }
+    reviewSetting {
+      id
+      active
+      detailed
+    }
   }
 }`;
