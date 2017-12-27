@@ -33,6 +33,17 @@ export default {
         description: 'Descricción',
       }
     },
+    EntitySetting: {
+      name: 'Entidad |||| Entidades',
+      fields: {
+        businessUnit: {id: 'Unida de Negocio'},
+        name: 'Nombre',
+        id: 'Id',
+        code: 'Codigo',
+        active: 'Activo',
+        description: 'Descricción',
+      }
+    },
     RatingSetting: {
       name: 'Categoria |||| Categorias',
       fields: {
@@ -52,13 +63,27 @@ export default {
       }
     },
     ReviewSetting: {
-      name: 'Revisión |||| Revisión',
+      name: 'Configuración de Revisión |||| Configuraciones de Revisión',
       fields: {
         ratingSetting: { id: "Configuración de Categoria"},
         businessUnit: { id: "Unida de Negocio"},
         id: 'Id',
         detailed: 'Detalle',
         ratingSettingId: 'Configuración de clasificación',
+      }
+    },
+    Review: {
+      name: 'Revisión |||| Revisiones',
+      fields: {
+        reviewSetting: { id: "Configuración de revisión"},
+        id: 'Id',
+        comment: 'Comentario',
+        value: 'Valor',
+        active: 'Activo',
+        published: 'Publicado',
+        userId: 'Usuario ID',
+        userName: 'Nombre del usuario',
+        externalEntityId: 'Entidad external',
       }
     },
   },

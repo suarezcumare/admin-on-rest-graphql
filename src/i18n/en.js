@@ -10,7 +10,8 @@ export default {
       fields: {
         name: 'Name',
         id: 'Id',
-        code: 'Code'
+        code: 'Code',
+        active: 'Active'
       },
     },
     BusinessUnit: {
@@ -22,6 +23,7 @@ export default {
         name: 'Name',
         id: 'Id',
         code: 'Code',
+        active: 'Active',
       }
     },
     CategorySetting: {
@@ -32,6 +34,18 @@ export default {
         code: 'Code',
         title: 'Title',
         description: 'Description',
+        active: 'Active',
+      }
+    },
+    EntitySetting: {
+      name: 'Entity |||| Entities',
+      fields: {
+        businessUnit: {id: 'business Unit'},
+        name: 'Name',
+        id: 'Id',
+        code: 'Cde',
+        active: 'Active',
+        description: 'description',
       }
     },
     RatingSetting: {
@@ -41,6 +55,7 @@ export default {
         id: 'Id',
         code: 'Code',
         description: 'Description',
+        active: 'Active',
       }
     },
     ReviewCategorySetting: {
@@ -49,16 +64,32 @@ export default {
         reviewSetting: { id: "Review Setting"},
         categorySetting: { id: "Category Setting"},
         id: 'Id',
+        active: 'Active',
       }
     },
     ReviewSetting: {
-      name: 'Review |||| Review',
+      name: 'Review Setting |||| Review Setting',
       fields: {
         ratingSetting: { id: "Rating Setting"},
         businessUnit: { id: "Business Unit"},
         id: 'Id',
         detailed: 'Detailed',
         ratingSettingId: 'Rating Setting',
+        active: 'Active',
+      }
+    },
+    Review: {
+      name: 'Review |||| Review',
+      fields: {
+        reviewSetting: { id: "Review Setting"},
+        id: 'Id',
+        comment: 'Comment',
+        value: 'Value',
+        active: 'Active',
+        published: 'Published',
+        userId: 'User ID',
+        userName: 'User Name',
+        externalEntityId: 'external Entity',
       }
     },
   },

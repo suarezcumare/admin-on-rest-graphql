@@ -50,6 +50,21 @@ import {
   ReviewCategorySettingShow,
   ReviewCategorySettingIcon
 } from './pages/reviewCategorySetting';
+import { 
+  ReviewList,
+  ReviewEdit,
+  ReviewShow,
+  ReviewIcon
+} from './pages/review';
+import { 
+  EntitySettingList,
+  EntitySettingEdit,
+  EntitySettingCreate,
+  EntitySettingShow,
+  EntitySettingIcon
+} from './pages/entitySetting';
+
+
 import './App.css';
 import authClient from './authClient';
 import Dashboard from './pages/dashboard';
@@ -112,6 +127,14 @@ class App extends Component {
           show={CategorySettingShow}
           remove={Delete}
           icon={CategorySettingIcon} />
+        <Resource
+          name="EntitySetting"
+          list={EntitySettingList}
+          edit={EntitySettingEdit}
+          create={EntitySettingCreate}
+          show={EntitySettingShow}
+          remove={Delete}
+          icon={EntitySettingIcon} />
         
         <Resource
           name="RatingSetting"
@@ -122,6 +145,14 @@ class App extends Component {
           remove={Delete}
           icon={RatingSettingIcon} />
         
+        <Resource
+          name="Review"
+          list={ReviewList}
+          edit={ReviewEdit}
+          show={ReviewShow}
+          remove={Delete}
+          icon={ReviewIcon} />
+
         <Resource
           name="ReviewSetting"
           list={ReviewSettingList}

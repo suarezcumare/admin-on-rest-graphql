@@ -10,7 +10,8 @@ export default {
       fields: {
         name: 'Nombre',
         id: 'Id',
-        code: 'Codigo'
+        code: 'Codigo',
+        active: 'Activo'
       }
     },
     BusinessUnit: {
@@ -21,6 +22,7 @@ export default {
         name: 'Nombre',
         id: 'Id',
         code: 'Codigo',
+        active: 'Activo'
       }
     },
     CategorySetting: {
@@ -30,6 +32,18 @@ export default {
         id: 'Id',
         code: 'Codigo',
         description: 'Descricción',
+        active: 'Activo'
+      }
+    },
+    EntitySetting: {
+      name: 'Entidad |||| Entidades',
+      fields: {
+        businessUnit: {id: 'Unida de Negocio'},
+        name: 'Nombre',
+        id: 'Id',
+        code: 'Codigo',
+        description: 'Descricción',
+        active: 'Activo'
       }
     },
     RatingSetting: {
@@ -40,6 +54,7 @@ export default {
         code: 'Codigo',
         title: 'Titulo',
         description: 'Descricción',
+        active: 'Activo'
       }
     },
     ReviewCategorySetting: {
@@ -48,16 +63,32 @@ export default {
         reviewSetting: { id: "Configuración de revisión"},
         categorySetting: { id: "Configuración de categoria"},
         id: 'Id',
+        active: 'Activo'
       }
     },
     ReviewSetting: {
-      name: 'Revisión |||| Revisión',
+      name: 'Configuracion de Revisión |||| Configuraciones de Revisión',
       fields: {
         ratingSetting: { id: "Configuración de clasificación"},
         businessUnit: { id: "Unida de Negocio"},
         id: 'Id',
         detailed: 'Detalle',
         ratingSettingId: 'Configuración de clasificación',
+        active: 'Activo'
+      }
+    },
+    Review: {
+      name: 'Revisión |||| Revisiones',
+      fields: {
+        reviewSetting: { id: "Configuración de revisión"},
+        id: 'Id',
+        comment: 'Comentario',
+        value: 'Valor',
+        published: 'Publicado',
+        userId: 'Usuario ID',
+        userName: 'Nombre del usuario',
+        externalEntityId: 'Entidad external',
+        active: 'Activo'
       }
     },
   },

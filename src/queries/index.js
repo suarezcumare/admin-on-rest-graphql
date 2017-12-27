@@ -40,6 +40,20 @@ import {
   deleteReviewCategorySettingQuery,
   getOneReviewCategorySettingQuery
 } from './reviewCategorySetting'
+import {
+  getListReviewQuery,
+  createReviewQuery,
+  updateReviewQuery,
+  deleteReviewQuery,
+  getOneReviewQuery
+} from './review'
+import {
+  getListEntitySettingQuery,
+  createEntitySettingQuery,
+  updateEntitySettingQuery,
+  deleteEntitySettingQuery,
+  getOneEntitySettingQuery
+} from './entitySetting'
 
 export default {
   Country: {
@@ -95,6 +109,26 @@ export default {
     UPDATE: updateReviewCategorySettingQuery,
     GET_ONE: getOneReviewCategorySettingQuery,
     DELETE: deleteReviewCategorySettingQuery,
+
+  },
+  Review: {
+    GET_LIST: getListReviewQuery,
+    GET_MANY: getListReviewQuery,
+    GET_MANY_REFERENCE: getListReviewQuery,
+    CREATE: createReviewQuery,
+    UPDATE: updateReviewQuery,
+    GET_ONE: getOneReviewQuery,
+    DELETE: deleteReviewQuery,
+
+  },
+  EntitySetting: {
+    GET_LIST: getListEntitySettingQuery,
+    GET_MANY: getListEntitySettingQuery,
+    GET_MANY_REFERENCE: getListEntitySettingQuery,
+    CREATE: createEntitySettingQuery,
+    UPDATE: updateEntitySettingQuery,
+    GET_ONE: getOneEntitySettingQuery,
+    DELETE: deleteEntitySettingQuery,
 
   }
 }

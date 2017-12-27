@@ -20,7 +20,7 @@ import {
   Responsive,
   SimpleList } from 'admin-on-rest';
 
-import reviewSettingIcon from 'material-ui/svg-icons/communication/comment';
+import reviewSettingIcon from 'material-ui/svg-icons/action/build';
 
 export const ReviewSettingIcon = reviewSettingIcon;
 
