@@ -92,7 +92,7 @@ mutation createReview($id: ID,$comment: String!, $value: Int!, $userId: Int!, $u
 }`;
 
 export const updateReviewQuery = gql`
-mutation editReview($id: ID,$comment: String!, $value: Int!, $published: Boolean,  $active: Boolean) {
+mutation editReview($id: ID! ,$comment: String!, $value: Int!, $published: Boolean,  $active: Boolean) {
   editReview(id: $id, comment: $comment, value: $value, published: $published, active: $active) {
     id
     comment

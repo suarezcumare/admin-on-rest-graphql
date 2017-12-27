@@ -59,10 +59,10 @@ export const ReviewCategorySettingShow = (props) => (
       <SimpleShowLayout>
       <TextField source="id" />
       <ReferenceField source="reviewSetting.id" reference="ReviewSetting" linkType="show" >
-        <TextField source="name" />
+        <TextField source="id" />
       </ReferenceField>
       <ReferenceField source="categorySetting.id" reference="CategorySetting" linkType="show" >
-        <TextField source="id" />
+        <TextField source="name" />
       </ReferenceField>
       <BooleanField source="active" />
       </SimpleShowLayout>
