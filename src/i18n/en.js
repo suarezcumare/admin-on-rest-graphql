@@ -17,6 +17,7 @@ export default {
       name: 'Business Unit |||| Business Units',
       fields: {
         country: { id: 'Country', name: 'Country' },
+        reviewSetting: { id: 'ReviewSetting', active: 'ReviewSetting' },
         reviewSettings: {id: 'Review Setting'},
         name: 'Name',
         id: 'Id',
@@ -57,7 +58,6 @@ export default {
         businessUnit: { id: "Business Unit"},
         id: 'Id',
         detailed: 'Detailed',
-        businessUnitId: 'business Unit',
         ratingSettingId: 'Rating Setting',
       }
     },

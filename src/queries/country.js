@@ -6,6 +6,7 @@ query countryById($id: ID!) {
     id
     code
     name
+    active
   }
 }`;
 
@@ -15,24 +16,27 @@ query countries {
     id
     code
     name
+    active
   }
 }`;
 
 export const createCountryQuery = gql`
-mutation createCountry($id: ID, $code: String!, $name: String!){
-  createCountry(id: $id, code: $code, name: $name){
+mutation createCountry($id: ID, $code: String!, $name: String!, $active: Boolean) {
+  createCountry(id: $id, code: $code, name: $name, active: $active) {
     id
     code
     name
+    active
   }
 }`;
 
 export const updateCountryQuery = gql`
-mutation updateCountry($id: ID!, $code: String!, $name: String!){
-  updateCountry(id: $id, code: $code, name: $name){
+mutation editCountry($id: ID!, $code: String!, $name: String!, $active: Boolean) {
+  editCountry(id: $id, code: $code, name: $name, active: $active) {
     id
     code
     name
+    active
   }
 }`;
 
@@ -42,5 +46,6 @@ mutation deleteCountry($id: ID!){
     id
     code
     name
+    active
   }
 }`;

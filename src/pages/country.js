@@ -14,7 +14,9 @@ import {
   SimpleShowLayout,
   ShowButton,
   Responsive,
-  SimpleList } from 'admin-on-rest';
+  SimpleList,
+  BooleanField,
+  NullableBooleanInput } from 'admin-on-rest';
 import countryIcon from 'material-ui/svg-icons/social/public';
 
 export const CountryIcon = countryIcon;
@@ -38,6 +40,7 @@ export const CountryList = (props) => (
           <TextField source="id" sortable={false} />
           <TextField source="code" sortable={false} />
           <TextField source="name" sortable={false} />
+          <BooleanField source="active" sortable={false} />
           <ShowButton />
         </Datagrid>
       }
@@ -51,6 +54,7 @@ export const CountryShow = (props) => (
         <TextField source="id" />
         <TextField source="code" />
         <TextField source="name" />
+        <BooleanField source="active" />
       </SimpleShowLayout>
   </Show>
 );
@@ -65,6 +69,7 @@ export const CountryEdit = (props) => (
       <DisabledInput source="id"  />
       <TextInput source="code" validate={required} />
       <TextInput source="name" validate={required}  />
+      <NullableBooleanInput  source="active" allowEmpty={false} validate={required} />
     </SimpleForm>
   </Edit>
 );
@@ -74,6 +79,7 @@ export const CountryCreate = (props) => (
     <SimpleForm>
       <TextInput source="code" validate={required} />
       <TextInput source="name" validate={required} />
+      <NullableBooleanInput  source="active" allowEmpty={false} validate={required} />
     </SimpleForm>
   </Create>
 );

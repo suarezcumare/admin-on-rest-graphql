@@ -16,7 +16,9 @@ import {
   SelectInput,
   ReferenceInput,
   Responsive,
-  SimpleList } from 'admin-on-rest';
+  SimpleList,
+  BooleanField,
+  NullableBooleanInput } from 'admin-on-rest';
 import reviewCategorySettingIcon from 'material-ui/svg-icons/action/settings';  
 
 export const ReviewCategorySettingIcon = reviewCategorySettingIcon;
@@ -44,6 +46,7 @@ export const ReviewCategorySettingList = (props) => (
           <ReferenceField source="reviewSetting.id" reference="ReviewSetting" linkType="show" sortable={false}>
             <TextField source="name" />
           </ReferenceField>
+          <BooleanField source="active" sortable={false} />
           <ShowButton />
         </Datagrid>
       }
@@ -55,12 +58,13 @@ export const ReviewCategorySettingShow = (props) => (
   <Show title={<ReviewCategorySettingTitle />} {...props}>
       <SimpleShowLayout>
       <TextField source="id" />
-      <ReferenceField source="reviewSetting.id" reference="ReviewSetting" linkType="show" sortable={false}>
+      <ReferenceField source="reviewSetting.id" reference="ReviewSetting" linkType="show" >
         <TextField source="id" />
       </ReferenceField>
-      <ReferenceField source="categorySetting.id" reference="CategorySetting" linkType="show" sortable={false}>
+      <ReferenceField source="categorySetting.id" reference="CategorySetting" linkType="show" >
         <TextField source="name" />
       </ReferenceField>
+      <BooleanField source="active" />
       </SimpleShowLayout>
   </Show>
 );
@@ -79,6 +83,7 @@ export const ReviewCategorySettingEdit = (props) => (
       <ReferenceInput source="categorySetting.id" reference="CategorySetting" allowEmpty validate={required}>
         <SelectInput optionText="name" />
       </ReferenceInput>
+      <NullableBooleanInput  source="active" allowEmpty={false} validate={required} />
     </SimpleForm>
   </Edit>
 );
@@ -90,8 +95,9 @@ export const ReviewCategorySettingCreate = (props) => (
         <SelectInput optionText="id" />
       </ReferenceInput>
       <ReferenceInput source="categorySetting.id" reference="CategorySetting" allowEmpty validate={required}>
-        <SelectInput optionText="name" />
+        <SelectInput optionText="id" />
       </ReferenceInput>
+      <NullableBooleanInput  source="active" allowEmpty={false} validate={required} />
     </SimpleForm>
   </Create>
 );

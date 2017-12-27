@@ -7,10 +7,19 @@ query businessUnitById($id: ID!) {
     code
     name
     countryId
+    active
+    reviewSettingId
     country {
       id
       code
       name
+      active
+    }
+    reviewSetting {
+      id
+      detailed
+      ratingSettingId
+      active
     }
   }
 }`;
@@ -22,41 +31,68 @@ query businessUnits {
     code
     name
     countryId
+    active
+    reviewSettingId
     country {
       id
       code
       name
+      active
+    }
+    reviewSetting {
+      id
+      detailed
+      ratingSettingId
+      active
     }
   }
 }`;
 
 
 export const createBusinessUnitQuery = gql`
-mutation createBusinessUnit($id: ID,$code: String!, $name: String!, $countryId: ID!){
-  createBusinessUnit(id: $id, code: $code, name: $name, countryId: $countryId){
+mutation createBusinessUnit($id: ID,$code: String!, $name: String!, $countryId: ID!, $reviewSettingId: ID!, $active: Boolean) {
+  createBusinessUnit(id: $id, code: $code, name: $name, countryId: $countryId, reviewSettingId: $reviewSettingId, active: $active) {
     id
     code
     name
     countryId
+    active
+    reviewSettingId
     country {
       id
       code
       name
     }
+    reviewSetting {
+      id
+      detailed
+      ratingSettingId
+      active
+    }
   }
 }`;
 
 export const updateBusinessUnitQuery = gql`
-mutation updateBusinessUnit($id: ID!,$code: String!, $name: String!, $countryId: ID!){
-  updateteBusinessUnit(id: $id, code: $code, name: $name, countryId: $countryId){
+mutation editBusinessUnit($id: ID!,$code: String!, $name: String!, $countryId: ID!, $reviewSettingId: ID!, $active: Boolean) {
+  editBusinessUnit(id: $id, code: $code, name: $name, countryId: $countryId, reviewSettingId: $reviewSettingId, active: $active) {
     id
     code
     name
     countryId
+    active
+    reviewSettingId
     country {
       id
       code
       name
+      active
+    }
+    reviewSetting {
+      id
+      detailed
+
+      ratingSettingId
+      active
     }
   }
 }`;
@@ -68,10 +104,19 @@ mutation deleteBusinessUnit($id: ID!){
     code
     name
     countryId
+    active
+    reviewSettingId
     country {
       id
       code
       name
+      active
+    }
+    reviewSetting {
+      id
+      detailed
+      ratingSettingId
+      active
     }
   }
 }`;

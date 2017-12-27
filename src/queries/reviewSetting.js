@@ -5,19 +5,13 @@ query reviewSettingById($id: ID!) {
   reviewSettingById(id: $id) {
     id
     detailed
-    businessUnitId
     ratingSettingId
+    active
     ratingSetting {
       id
       code
       name
       description
-    }
-    businessUnit {
-      id
-      code
-      name
-      countryId
     }
   }
 }`;
@@ -27,63 +21,45 @@ query reviewSettings {
   reviewSettings {
     id
     detailed
-    businessUnitId
     ratingSettingId
+    active
     ratingSetting {
       id
       code
       name
       description
-    }
-    businessUnit {
-      id
-      code
-      name
-      countryId
     }
   }
 }`;
 
 export const createReviewSettingQuery = gql`
-mutation createReviewSetting ($id: ID, $detailed: Boolean!, $businessUnitId: ID!, $ratingSettingId: ID!) {
-  createReviewSetting (id: $id, detailed: $detailed, businessUnitId: $businessUnitId, ratingSettingId: $ratingSettingId) {
+mutation createReviewSetting ($id: ID, $detailed: Boolean!, $ratingSettingId: ID!, $active: Boolean) {
+  createReviewSetting (id: $id, detailed: $detailed, ratingSettingId: $ratingSettingId, active: $active) {
     id
     detailed
-    businessUnitId
     ratingSettingId
+    active
     ratingSetting {
       id
       code
       name
       description
-    }
-    businessUnit {
-      id
-      code
-      name
-      countryId
     }
   }
 }`;
 
 export const updateReviewSettingQuery = gql`
-mutation updateReviewSetting ($id: ID!, $detailed: Boolean!, $businessUnitId: ID!, $ratingSettingId: ID!) {
-  updateReviewSetting (id: $id, detailed: $detailed, businessUnitId: $businessUnitId, ratingSettingId: $ratingSettingId) {
+mutation editReviewSetting ($id: ID!, $detailed: Boolean!, $ratingSettingId: ID!, $active: Boolean) {
+  editReviewSetting (id: $id, detailed: $detailed, ratingSettingId: $ratingSettingId, active: $active) {
     id
     detailed
-    businessUnitId
     ratingSettingId
+    active
     ratingSetting {
       id
       code
       name
       description
-    }
-    businessUnit {
-      id
-      code
-      name
-      countryId
     }
   }
 }`;
@@ -93,19 +69,13 @@ mutation deleteReviewSetting ($id: ID!) {
   deleteReviewSetting (id: $id) {
     id
     detailed
-    businessUnitId
     ratingSettingId
+    active
     ratingSetting {
       id
       code
       name
       description
-    }
-    businessUnit {
-      id
-      code
-      name
-      countryId
     }
   }
 }`;

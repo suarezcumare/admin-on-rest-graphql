@@ -17,7 +17,9 @@ import {
   ReferenceInput,
   SelectInput,
   Responsive,
-  SimpleList } from 'admin-on-rest';
+  SimpleList,
+  BooleanField,
+  NullableBooleanInput } from 'admin-on-rest';
 import businessUnitIcon from 'material-ui/svg-icons/communication/business';
 
 export const BusinessUnitIcon = businessUnitIcon;
@@ -44,6 +46,10 @@ export const BusinessUnitList = (props) => (
           <ReferenceField source="country.id" reference="Country" linkType="show" sortable={false}>
               <TextField source="name" />
           </ReferenceField>
+          <ReferenceField source="reviewSetting.id" reference="ReviewSetting" linkType="show" sortable={false}>
+              <TextField source="id" />
+          </ReferenceField>
+          <BooleanField source="active" />
           <ShowButton />
         </Datagrid>
       }
@@ -60,6 +66,10 @@ export const BusinessUnitShow = (props) => (
         <ReferenceField source="country.id" reference="Country" linkType="show">
           <TextField source="name" />
         </ReferenceField>
+        <ReferenceField source="reviewSetting.id" reference="ReviewSetting" linkType="show" >
+          <TextField source="id" />
+        </ReferenceField>
+        <BooleanField source="active" />
       </SimpleShowLayout>
   </Show>
 );
@@ -77,6 +87,10 @@ export const BusinessUnitEdit = (props) => (
       <ReferenceInput source="country.id" reference="Country" allowEmpty validate={required}>
         <SelectInput optionText="name" />
       </ReferenceInput>
+      <ReferenceInput source="reviewSetting.id" reference="ReviewSetting" allowEmpty validate={required} >
+        <SelectInput optionText="id" />
+      </ReferenceInput>
+      <NullableBooleanInput  source="active" allowEmpty={false} validate={required} />
     </SimpleForm>
   </Edit>
 );
@@ -89,6 +103,10 @@ export const BusinessUnitCreate = (props) => (
       <ReferenceInput source="country.id" reference="Country" allowEmpty validate={required}>
         <SelectInput optionText="name" />
       </ReferenceInput>
+      <ReferenceInput source="reviewSetting.id" reference="ReviewSetting" allowEmpty validate={required} >
+        <SelectInput optionText="id" />
+      </ReferenceInput>
+      <NullableBooleanInput  source="active" allowEmpty={false} validate={required} />
     </SimpleForm>
   </Create>
 );

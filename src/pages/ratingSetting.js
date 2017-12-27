@@ -15,7 +15,9 @@ import {
   SimpleShowLayout,
   ShowButton,
   Responsive,
-  SimpleList } from 'admin-on-rest';
+  SimpleList,
+  BooleanField,
+  NullableBooleanInput } from 'admin-on-rest';
 import ratingSettingIcon from 'material-ui/svg-icons/action/swap-vert';  
 
 export const RatingSettingIcon = ratingSettingIcon;
@@ -40,6 +42,7 @@ export const RatingSettingList = (props) => (
           <TextField source="code" sortable={false} />
           <TextField source="name" sortable={false} />
           <TextField source="description" sortable={false} />
+          <BooleanField source="active" sortable={false} />
           <ShowButton />
         </Datagrid>
       }
@@ -50,10 +53,11 @@ export const RatingSettingList = (props) => (
 export const RatingSettingShow = (props) => (
   <Show title={<RatingSettingTitle />} {...props}>
       <SimpleShowLayout>
-        <TextField source="id" sortable={false} />
-        <TextField source="code" sortable={false} />
-        <TextField source="name" sortable={false} />
-        <TextField source="description" sortable={false} />
+        <TextField source="id" />
+        <TextField source="code"  />
+        <TextField source="name" />
+        <TextField source="description" />
+        <BooleanField source="active" />
       </SimpleShowLayout>
   </Show>
 );
@@ -69,6 +73,7 @@ export const RatingSettingEdit = (props) => (
       <TextInput source="code" validate={required} />
       <TextInput source="name" validate={required}  />
       <LongTextInput source="description" validate={required}  />
+      <NullableBooleanInput  source="active" allowEmpty={false} validate={required} />
     </SimpleForm>
   </Edit>
 );
@@ -79,6 +84,7 @@ export const RatingSettingCreate = (props) => (
       <TextInput source="code" validate={required} />
       <TextInput source="name" validate={required} />
       <LongTextInput source="description" validate={required}  />
+      <NullableBooleanInput  source="active" allowEmpty={false} validate={required} />
     </SimpleForm>
   </Create>
 );

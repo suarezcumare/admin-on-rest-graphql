@@ -6,6 +6,7 @@ query reviewCategorySettingById($id: ID!) {
     id
     reviewSettingId
     categorySettingId
+    active
   }
 }`;
 
@@ -15,25 +16,28 @@ query reviewCategorySettings {
     id
     reviewSettingId
     categorySettingId
+    active
   }
 }`;
 
 
 export const createReviewCategorySettingQuery = gql`
-mutation createReviewCategorySetting($id: ID, $reviewSettingId: ID!, $categorySettingId: ID!){
-  createReviewCategorySetting(id: $id, reviewSetting: $reviewSettingId, categorySettingId: $categorySettingId){
+mutation createReviewCategorySetting($reviewSettingId: ID!, $categorySettingId: ID!, $active: Boolean) {
+  createReviewCategorySetting(reviewSettingId: $reviewSettingId, categorySettingId: $categorySettingId, active: $active) {
     id
     reviewSettingId
     categorySettingId
+    active
   }
 }`;
 
 export const updateReviewCategorySettingQuery = gql`
-mutation updateReviewCategorySetting($id: ID!, $reviewSettingId: ID!, $categorySettingId: ID!){
-  updateReviewCategorySetting(id: $id, reviewSettingId: $reviewSettingId, categorySettingId: $categorySettingId){
+mutation editReviewCategorySetting($id: ID!, $reviewSettingId: ID!, $categorySettingId: ID!, $active: Boolean) {
+  editReviewCategorySetting(id: $id, reviewSettingId: $reviewSettingId, categorySettingId: $categorySettingId, active: $active) {
     id
     reviewSettingId
     categorySettingId
+    active
   }
 }`;
 
@@ -43,5 +47,6 @@ mutation deleteReviewCategorySetting($id: ID!){
     id
     reviewSettingId
     categorySettingId
+    active
   }
 }`;

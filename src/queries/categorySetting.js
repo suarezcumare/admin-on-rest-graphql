@@ -8,6 +8,7 @@ query categorySettingById($id: ID!) {
     name
     title
     description
+    active
   }
 }`;
 
@@ -19,29 +20,32 @@ query categorySettings {
     name
     title
     description
+    active
   }
 }`;
 
 
 export const createCategorySettingQuery = gql`
-mutation createCategorySetting($id: ID, $code: String!, $name: String!, $title: String!, $description: String!){
-  createCategorySetting(id: $id,code: $code, name: $name, title: $title, description: $description){
+mutation createCategorySetting($id: ID, $code: String!, $name: String!, $title: String!, $description: String!, $active: Boolean) {
+  createCategorySetting(id: $id,code: $code, name: $name, title: $title, description: $description, active: $active) {
     id
     code
     name
     title
     description
+    active
   }
 }`;
 
 export const updateCategorySettingQuery = gql`
-mutation updateCategorySetting($id: ID!, $code: String!, $name: String!, $title: String!, $description: String!){
-  updateCategorySetting(id: $id,code: $code, name: $name, title: $title, description: $description){
+mutation editCategorySetting($id: ID!, $code: String!, $name: String!, $title: String!, $description: String!, $active: Boolean) {
+  editCategorySetting(id: $id,code: $code, name: $name, title: $title, description: $description, active: $active) {
     id
     code
     name
     title
     description
+    active
   }
 }`;
 
@@ -54,5 +58,6 @@ mutation deleteCategorySetting($id: ID!){
     name
     title
     description
+    active
   }
 }`;

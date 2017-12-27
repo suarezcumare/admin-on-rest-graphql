@@ -7,6 +7,7 @@ query ratingSettingById($id: ID!) {
     code
     name
     description
+    active
   }
 }`;
 
@@ -17,27 +18,30 @@ query ratingSettings {
     code
     name
     description
+    active
   }
 }`;
 
 
 export const createRatingSettingQuery = gql`
-mutation createRatingSetting($id: ID, $code: String!, $name: String!, $description: String!){
-  createRatingSetting(id: $id,code: $code, name: $name, description: $description){
+mutation createRatingSetting($id: ID, $code: String!, $name: String!, $description: String!, $active: Boolean) {
+  createRatingSetting(id: $id,code: $code, name: $name, description: $description, active: $active) {
     id
     code
     name
     description
+    active
   }
 }`;
 
 export const updateRatingSettingQuery = gql`
-mutation updateRatingSetting($id: ID!, $code: String!, $name: String!, $description: String!){
-  updateRatingSetting(id: $id,code: $code, name: $name, description: $description){
+mutation editatingSetting($id: ID!, $code: String!, $name: String!, $description: String!, $active: Boolean) {
+  editRatingSetting(id: $id,code: $code, name: $name, description: $description, active: $active) {
     id
     code
     name
     description
+    active
   }
 }`;
 
@@ -49,5 +53,6 @@ mutation deleteRatingSetting($id: ID!){
     code
     name
     description
+    active
   }
 }`;

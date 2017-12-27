@@ -9,7 +9,6 @@ import {
   SimpleForm,
   translate,
   required,
-  BooleanInput,
   Show,
   SimpleShowLayout,
   ShowButton,
@@ -34,7 +33,7 @@ export const ReviewSettingList = (props) => (
     <Responsive
       small={
         <SimpleList
-            primaryText={record => record.businessUnit.name}
+            primaryText={record => record.ratingSetting.name}
             secondaryText={record => record.detailed}
             tertiaryText={record => record.id}
         />
@@ -43,12 +42,10 @@ export const ReviewSettingList = (props) => (
         <Datagrid bodyOptions={{ showRowHover: true }}>
           <TextField source="id" sortable={false} />
           <BooleanField source="detailed" sortable={false}/>
-          <ReferenceField source="businessUnit.id" reference="BusinessUnit" linkType="show" sortable={false}>
-            <TextField source="name" />
-          </ReferenceField>
           <ReferenceField source="ratingSetting.id" reference="RatingSetting" linkType="show" sortable={false}>
             <TextField source="name" />
           </ReferenceField>
+          <BooleanField source="active" sortable={false} />
           <ShowButton />
         </Datagrid>
       }
@@ -60,13 +57,11 @@ export const ReviewSettingShow = (props) => (
   <Show title={<ReviewSettingTitle />} {...props}>
       <SimpleShowLayout>
       <TextField source="id" />
-      <TextField source="detailed" />
-      <ReferenceField source="businessUnit.id" reference="BusinessUnit" linkType="show" sortable={false}>
-        <TextField source="name" />
-      </ReferenceField>
+      <BooleanField source="detailed"/>
       <ReferenceField source="ratingSetting.id" reference="RatingSetting" linkType="show" sortable={false}>
         <TextField source="name" />
       </ReferenceField>
+      <BooleanField source="active" />
       </SimpleShowLayout>
   </Show>
 );
@@ -79,13 +74,11 @@ export const ReviewSettingEdit = (props) => (
   <Edit title={<ReviewSettingTitle />} {...props}>
     <SimpleForm>
       <DisabledInput source="id"  />
-      <BooleanInput source="detailed" validate={required} />
-      <ReferenceField source="businessUnit.id" reference="BusinessUnit" linkType="show" sortable={false}>
-        <TextField source="name" />
-      </ReferenceField>
+      <NullableBooleanInput  source="detailed" allowEmpty={false} validate={required} />
       <ReferenceField source="ratingSetting.id" reference="RatingSetting" linkType="show" sortable={false}>
         <TextField source="name" />
       </ReferenceField>
+      <NullableBooleanInput  source="active" allowEmpty={false} validate={required} />
     </SimpleForm>
   </Edit>
 );
@@ -94,12 +87,10 @@ export const ReviewSettingCreate = (props) => (
   <Create {...props}>
     <SimpleForm>
     <NullableBooleanInput  source="detailed" allowEmpty={false} validate={required} />
-    <ReferenceInput source="businessUnit.id" reference="BusinessUnit" allowEmpty validate={required}>
-      <SelectInput optionText="name" />
-    </ReferenceInput>
     <ReferenceInput source="ratingSetting.id" reference="RatingSetting" allowEmpty validate={required}>
       <SelectInput optionText="name" />
     </ReferenceInput>
+    <NullableBooleanInput  source="active" allowEmpty={false} validate={required} />
     </SimpleForm>
   </Create>
 );

@@ -15,7 +15,9 @@ import {
   SimpleShowLayout,
   ShowButton,
   Responsive,
-  SimpleList } from 'admin-on-rest';
+  SimpleList,
+  BooleanField,
+  NullableBooleanInput } from 'admin-on-rest';
 import categorySettingIcon from 'material-ui/svg-icons/action/bookmark';
 
 export const CategorySettingIcon = categorySettingIcon;
@@ -41,6 +43,7 @@ export const CategorySettingList = (props) => (
           <TextField source="name" sortable={false} />
           <TextField source="title" sortable={false}/>
           <TextField source="description" sortable={false} />
+          <BooleanField source="active" />
           <ShowButton />
         </Datagrid>
       }
@@ -56,6 +59,7 @@ export const CategorySettingShow = (props) => (
         <TextField source="name" />
         <TextField source="title" />
         <TextField source="description" />
+        <BooleanField source="active" />
       </SimpleShowLayout>
   </Show>
 );
@@ -71,7 +75,8 @@ export const CategorySettingEdit = (props) => (
       <TextInput source="code" validate={required} />
       <TextInput source="name" validate={required}  />
       <TextInput source="title" validate={required}  />
-      <LongTextInput source="description" validate={required}  />
+      <LongTextInput source="description" validate={required} />
+      <NullableBooleanInput  source="active" allowEmpty={false} validate={required} />
     </SimpleForm>
   </Edit>
 );
@@ -83,6 +88,7 @@ export const CategorySettingCreate = (props) => (
       <TextInput source="name" validate={required} />
       <TextInput source="title" validate={required}  />
       <LongTextInput source="description" validate={required}  />
+      <NullableBooleanInput  source="active" allowEmpty={false} validate={required} />
     </SimpleForm>
   </Create>
 );
