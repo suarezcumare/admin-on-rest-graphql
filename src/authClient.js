@@ -7,10 +7,13 @@ import {
 
 export default (type, params) => {
     if (type === AUTH_LOGIN) {
-        const { username } = params;
-        localStorage.setItem('username', username);
-        // accept all username/password combinations
-        return Promise.resolve();
+        const { username, password } = params;
+        if (username === "admin" && password === "compara.1234"){
+          localStorage.setItem('username', username);
+          return Promise.resolve();
+        } else {
+          return Promise.reject();
+        }
     }
     if (type === AUTH_LOGOUT) {
         localStorage.removeItem('username');

@@ -64,7 +64,7 @@ import {
   EntitySettingIcon
 } from './pages/entitySetting';
 
-
+import loginPage from './pages/loginPage';
 import './App.css';
 import authClient from './authClient';
 import Dashboard from './pages/dashboard';
@@ -94,6 +94,7 @@ class App extends Component {
 
     return (
       <Admin
+        loginPage={loginPage}
         title='Reviews'
         locale={resolveBrowserLocale()}
         messages={translations}
