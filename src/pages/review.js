@@ -32,17 +32,15 @@ export const ReviewList = (props) => (
     <Responsive
       small={
         <SimpleList
-            primaryText={record => record.comment}
-            secondaryText={record => record.value}
-            tertiaryText={record => record.id}
+          primaryText={record => record.comment}
+          secondaryText={record => record.value}
+          tertiaryText={record => record.id}
         />
       }
       medium={
         <Datagrid bodyOptions={{ showRowHover: true }}>
           <TextField source="id" sortable={false} />
           <TextField source="comment" sortable={false}/>
-          <TextField source="value" sortable={false}/>
-          <TextField source="userId" sortable={false}/>
           <TextField source="userName" sortable={false}/>
           <BooleanField source="published" sortable={false} />
           <ReferenceField source="reviewSetting.id" reference="ReviewSetting" linkType="show" sortable={false}>

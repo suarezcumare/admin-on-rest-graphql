@@ -44,12 +44,12 @@ export const BusinessUnitList = (props) => (
           <TextField source="code" sortable={false} />
           <TextField source="name" sortable={false} />
           <ReferenceField source="country.id" reference="Country" linkType="show" sortable={false}>
-              <TextField source="name" />
+            <TextField source="name" />
           </ReferenceField>
           <ReferenceField source="reviewSetting.id" reference="ReviewSetting" linkType="show" sortable={false}>
-              <TextField source="id" />
+            <TextField source="id" />
           </ReferenceField>
-          <BooleanField source="active" />
+          <BooleanField source="active" sortable={false}/>
           <ShowButton />
         </Datagrid>
       }

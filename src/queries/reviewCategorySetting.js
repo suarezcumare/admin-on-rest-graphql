@@ -44,7 +44,6 @@ query reviewCategorySettings {
   }
 }`;
 
-
 export const createReviewCategorySettingQuery = gql`
 mutation createReviewCategorySetting($reviewSettingId: ID!, $categorySettingId: ID!, $active: Boolean) {
   createReviewCategorySetting(reviewSettingId: $reviewSettingId, categorySettingId: $categorySettingId, active: $active) {

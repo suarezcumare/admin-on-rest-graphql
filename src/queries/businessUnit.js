@@ -48,7 +48,6 @@ query businessUnits {
   }
 }`;
 
-
 export const createBusinessUnitQuery = gql`
 mutation createBusinessUnit($id: ID,$code: String!, $name: String!, $countryId: ID!, $reviewSettingId: ID!, $active: Boolean) {
   createBusinessUnit(id: $id, code: $code, name: $name, countryId: $countryId, reviewSettingId: $reviewSettingId, active: $active) {

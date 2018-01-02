@@ -32,9 +32,9 @@ export const ReviewCategorySettingList = (props) => (
     <Responsive
       small={
         <SimpleList
-            primaryText={record => record.reviewSetting.name}
-            secondaryText={record => record.categorySetting.id}
-            tertiaryText={record => record.id}
+          primaryText={record => record.reviewSetting.name}
+          secondaryText={record => record.categorySetting.id}
+          tertiaryText={record => record.id}
         />
       }
       medium={

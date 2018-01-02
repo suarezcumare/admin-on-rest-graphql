@@ -22,7 +22,6 @@ query ratingSettings {
   }
 }`;
 
-
 export const createRatingSettingQuery = gql`
 mutation createRatingSetting($id: ID, $code: String!, $name: String!, $description: String!, $active: Boolean) {
   createRatingSetting(id: $id,code: $code, name: $name, description: $description, active: $active) {
@@ -44,7 +43,6 @@ mutation editatingSetting($id: ID!, $code: String!, $name: String!, $description
     active
   }
 }`;
-
 
 export const deleteRatingSettingQuery = gql`
 mutation deleteRatingSetting($id: ID!){

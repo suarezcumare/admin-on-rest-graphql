@@ -109,7 +109,6 @@ export default {
     UPDATE: updateReviewCategorySettingQuery,
     GET_ONE: getOneReviewCategorySettingQuery,
     DELETE: deleteReviewCategorySettingQuery,
-
   },
   Review: {
     GET_LIST: getListReviewQuery,
@@ -119,7 +118,6 @@ export default {
     UPDATE: updateReviewQuery,
     GET_ONE: getOneReviewQuery,
     DELETE: deleteReviewQuery,
-
   },
   EntitySetting: {
     GET_LIST: getListEntitySettingQuery,
@@ -129,6 +127,5 @@ export default {
     UPDATE: updateEntitySettingQuery,
     GET_ONE: getOneEntitySettingQuery,
     DELETE: deleteEntitySettingQuery,
-
   }
 }

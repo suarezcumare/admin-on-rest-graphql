@@ -24,7 +24,6 @@ query categorySettings {
   }
 }`;
 
-
 export const createCategorySettingQuery = gql`
 mutation createCategorySetting($id: ID, $code: String!, $name: String!, $title: String!, $description: String!, $active: Boolean) {
   createCategorySetting(id: $id,code: $code, name: $name, title: $title, description: $description, active: $active) {
@@ -48,7 +47,6 @@ mutation editCategorySetting($id: ID!, $code: String!, $name: String!, $title: S
     active
   }
 }`;
-
 
 export const deleteCategorySettingQuery = gql`
 mutation deleteCategorySetting($id: ID!){

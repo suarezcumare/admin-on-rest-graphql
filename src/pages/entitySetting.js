@@ -34,9 +34,9 @@ export const EntitySettingList = (props) => (
     <Responsive
       small={
         <SimpleList
-            primaryText={record => record.name}
-            secondaryText={record => record.description}
-            tertiaryText={record => record.id}
+          primaryText={record => record.name}
+          secondaryText={record => record.description}
+          tertiaryText={record => record.id}
         />
       }
       medium={

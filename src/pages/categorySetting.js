@@ -31,9 +31,9 @@ export const CategorySettingList = (props) => (
     <Responsive
       small={
         <SimpleList
-            primaryText={record => record.name}
-            secondaryText={record => record.description}
-            tertiaryText={record => record.id}
+          primaryText={record => record.name}
+          secondaryText={record => record.description}
+          tertiaryText={record => record.id}
         />
       }
       medium={
@@ -43,7 +43,7 @@ export const CategorySettingList = (props) => (
           <TextField source="name" sortable={false} />
           <TextField source="title" sortable={false}/>
           <TextField source="description" sortable={false} />
-          <BooleanField source="active" />
+          <BooleanField source="active" sortable={false}/>
           <ShowButton />
         </Datagrid>
       }

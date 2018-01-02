@@ -37,7 +37,6 @@ query entitySettings {
   }
 }`;
 
-
 export const createEntitySettingQuery = gql`
 mutation createEntitySetting($id: ID, $code: String!, $name: String!, $description: String!, $active: Boolean, $businessUnitId: ID!) {
   createEntitySetting(id: $id,code: $code, name: $name, description: $description, active: $active, businessUnitId: $businessUnitId) {

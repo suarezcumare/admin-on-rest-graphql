@@ -60,7 +60,6 @@ query reviews {
   }
 }`;
 
-
 export const createReviewQuery = gql`
 mutation createReview($id: ID,$comment: String!, $value: Int!, $userId: Int!, $userName: String!, $externalEntityId: Int!, $entitySettingCode: String!,  $published: Boolean,  $active: Boolean, $reviewSettingId: ID) {
   createReview(id: $id, comment: $comment, value: $value, userId: $userId, userName: $userName, externalEntityId: $externalEntityId, entitySettingCode: $entitySettingCode, published: $published, active: $active, reviewSettingId: $reviewSettingId) {

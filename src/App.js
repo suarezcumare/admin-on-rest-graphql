@@ -171,7 +171,7 @@ class App extends Component {
           show={ReviewCategorySettingShow}
           remove={Delete}
           icon={ReviewCategorySettingIcon} />
-    </Admin>
+      </Admin>
     );
   }
 }
